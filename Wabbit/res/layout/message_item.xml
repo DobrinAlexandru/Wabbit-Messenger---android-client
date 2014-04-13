@@ -1,0 +1,85 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp">
+
+    <RelativeLayout
+        android:id="@+id/sent"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/body_holder1"
+            android:background="@drawable/body_drawable_sent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_toLeftOf="@+id/bubble_right"
+            android:layout_centerVertical="true"
+            android:padding="10dp">
+            <TextView
+                android:id="@+id/text_body_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sz_vsmall"
+                android:textColor="#FFFFFFFF"
+                android:text="Sunt Bogdan, ne-am intalnit la o petrecere."/>
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/bubble_right"
+            android:layout_width="@dimen/sz_20dp"
+            android:layout_height="@dimen/sz_20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/triangle_right"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/received"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <com.makeramen.RoundedImageView
+            android:id="@+id/avatar_left"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:scaleType="centerCrop"
+            android:layout_alignParentLeft="true"
+            android:layout_alignBottom="@+id/body_holder"
+            android:src="@drawable/ic_launcher"/>
+        <RelativeLayout
+            android:id="@+id/body_holder"
+            android:background="@drawable/body_drawable_received"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="50dp"
+            android:layout_toRightOf="@+id/bubble_left"
+            android:layout_centerVertical="true"
+            android:padding="10dp">
+            <TextView
+                android:id="@+id/text_body_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sz_vsmall"
+                android:textColor="#FF000000"
+                android:text="Salut! Cum te cheama? Vrei sa iesim ?"/>
+        </RelativeLayout>
+
+
+        <View
+            android:id="@+id/bubble_left"
+            android:layout_width="@dimen/sz_20dp"
+            android:layout_height="@dimen/sz_20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/triangle_left"
+            android:layout_alignTop="@+id/avatar_left"
+            android:layout_toRightOf="@+id/avatar_left"/>
+    </RelativeLayout>
+
+</LinearLayout>

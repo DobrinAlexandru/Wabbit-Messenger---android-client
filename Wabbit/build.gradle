@@ -1,0 +1,62 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.9.+'
+    }
+}
+apply plugin: 'android'
+
+repositories {
+    mavenCentral()
+}
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion '19'
+
+    defaultConfig {
+        minSdkVersion 8
+        targetSdkVersion 19
+        versionCode 4
+        versionName "1.12"
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            res.srcDirs = ['res']
+        }
+    }
+}
+
+dependencies {
+    //    compile 'com.android.support:appcompat-v7:+'
+    compile project(':library_projects:androidbootstrap')
+    compile project(':library_projects:facebook')
+    compile project(':library_projects:roundedimageview')
+    compile project(':library_projects:activeandroid-master')
+    compile project(':library_projects:locationlibrary')
+    compile project(':library_projects:bolts-android')
+    compile project(':library_projects:pulltorefresh')
+
+
+    //jars
+    compile files('library_jars/disklrucache-2.0.1.jar')
+    compile files('library_jars/gson-2.2.4.jar')
+    compile files('library_jars/nineoldandroid.jar')
+    compile files('library_jars/Parse-1.4.2.jar')
+    compile files('library_jars/firebase-client-jvm-LATEST.jar')
+
+    //online jars
+//    compile 'com.android.support:support-v13:13.0.0'
+    compile 'com.google.android.gms:play-services:4.0.+'
+    compile "com.mixpanel.android:mixpanel-android:4.0.0@aar"
+}

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
+                xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+                android:background="@color/white"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RelativeLayout
+                    android:id="@+id/input_holder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="3dp">
+        <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/send_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="Send"
+                bootstrapbutton:bb_roundedCorners="false"
+                bootstrapbutton:bb_type="primary"
+                bootstrapbutton:bb_size="small"
+        />
+        <!-- rounded edit text -->
+        <com.beardedhen.androidbootstrap.BootstrapEditText
+                android:id="@+id/message_input"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/send_button"
+                android:hint="Type your message"
+                bootstrapbutton:be_roundedCorners="false"
+                android:layout_centerVertical="true"
+                android:gravity="left"
+                android:inputType="textShortMessage|textMultiLine|textCapSentences"
+                android:maxLines="4"
+                android:imeOptions="actionSend|flagNoEnterAction"
+                android:maxLength="1000"
+                bootstrapbutton:be_state="primary"
+        />
+    </RelativeLayout>
+
+     <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="48dip"
+        android:id="@+id/chat_header"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:layout_height="48dip"
+            android:layout_width="wrap_content"
+            android:paddingRight="5dp"
+            android:background="@drawable/back_button"
+            android:id="@+id/layer_back">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/arrow2"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/arrow" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/arrow">
+                <TextView
+                    android:id="@+id/partner_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bogdan Tirca"
+                    android:textColor="#000000"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+                <TextView
+                    android:id="@+id/distance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/partner_name"
+                    android:layout_alignLeft="@id/partner_name"
+                    android:text="within 20 m"
+                    android:textColor="#FF0084FF"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                </RelativeLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/menu_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true">
+               <ImageView
+                   android:id="@+id/menu_button"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:padding="5dp"
+                   android:background="@drawable/option_button"
+                   android:scaleType="centerInside"
+                   android:src="@drawable/abs__ic_menu_moreoverflow_normal_holo_light"/>
+        </RelativeLayout>
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="3dp"
+             android:background="@drawable/blue_line"
+             android:layout_alignParentLeft="true"
+             android:layout_alignParentBottom="true"/>
+</RelativeLayout>
+
+    <asynclist.AsyncListView
+            android:id="@+id/messages_list"
+            android:layout_above="@id/input_holder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/chat_header"/>
+</RelativeLayout>

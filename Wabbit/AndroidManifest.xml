@@ -1,0 +1,141 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.wabbit.messenger"
+    android:versionCode="3"
+	android:versionName="1.11"
+	android:installLocation="auto">
+
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />	
+
+	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+	<uses-permission android:name="android.permission.USE_CREDENTIALS" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!--Parse permission-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-feature android:name="android.hardware.location" android:required="true" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+
+    <!--
+      IMPORTANT: Change "com.parse.tutorials.pushnotifications.permission.C2D_MESSAGE" in the lines below
+      to match your app's package name + ".permission.C2D_MESSAGE".
+    -->
+    <permission android:protectionLevel="signature"
+                android:name="com.wabbit.messenger.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.wabbit.messenger.permission.C2D_MESSAGE" />
+
+	<uses-sdk android:minSdkVersion="8"
+	    android:targetSdkVersion="19"/>
+
+	<supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true"
+        android:resizeable="true" />
+
+	 
+    <application
+        android:name="com.wabbit.application.BaseApp"
+        android:allowBackup="false"
+		android:icon="@drawable/ic_launcher"
+		android:label="@string/app_name"
+		android:theme="@android:style/Theme.NoTitleBar">
+		<activity
+            android:name="com.wabbit.activity.StartActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="com.wabbit.activity.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <activity
+                android:name="com.facebook.LoginActivity" >
+        </activity>
+
+        <!--<activity-->
+                <!--android:name="com.wabbit.activity.MessagesActivity"-->
+                <!--android:screenOrientation="portrait"/>-->
+		
+		<!-- Google Play Service apis -->
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <!--Active android database-->
+        <meta-data android:name="AA_DB_VERSION" android:value="1" />
+
+        //Parse
+        <service android:name="com.parse.PushService" />
+        <receiver android:name="com.parse.ParseBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.wabbit.receivers.ParseReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="com.wabbit.receivers.UPDATE_STATUS" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.parse.GcmBroadcastReceiver"
+                  android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <!--
+                  IMPORTANT: Change "com.parse.tutorials.pushnotifications" to match your app's package name.
+                -->
+                <category android:name="com.wabbit.messenger" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.wabbit.receivers.LocationReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="com.wabbit.messenger.littlefluffylocationlibrary.LOCATION_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.littlefluffytoys.littlefluffylocationlibrary.LocationBroadcastService" />
+        <receiver android:name="com.littlefluffytoys.littlefluffylocationlibrary.StartupBroadcastReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.littlefluffytoys.littlefluffylocationlibrary.PassiveLocationChangedReceiver" android:exported="true" />
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+
+        <receiver
+            android:name="com.mixpanel.android.mpmetrics.InstallReferrerReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+	</application>
+
+</manifest>

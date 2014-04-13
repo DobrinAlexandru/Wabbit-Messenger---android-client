@@ -1,0 +1,44 @@
+<!--
+  Copyright 2011 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<resources>
+
+    <dimen name="sz_vsmall">12dp</dimen>
+    <dimen name="sz_small">18dp</dimen>
+    <dimen name="sz_medium">25dp</dimen>
+    <dimen name="sz_large">30dp</dimen>
+    <dimen name="sz_vlarge">35dp</dimen>
+    <dimen name="sz_xlarge">40dp</dimen>
+    <dimen name="sz_20dp">12dp</dimen>
+    <dimen name="sz_margin_bottom_controls">6dp</dimen>
+
+    <dimen name="bar_height">12dp</dimen>
+
+    <dimen name="avatar_size">80dp</dimen>
+    <dimen name="list_avatar_size">70dp</dimen>
+
+    <dimen name="zero_offset">0dp</dimen>
+    <dimen name="slidingmenu_offset">60dp</dimen>
+    <dimen name="list_padding">10dp</dimen>
+    <dimen name="shadow_width">15dp</dimen>
+    <dimen name="logo_width">303dp</dimen>
+    <dimen name="mainLayoutHeight">400dp</dimen>
+    <dimen name="WabbitTextHeight">120dp</dimen>
+    <dimen name="buttomStartLayout">400dp</dimen>
+    <dimen name="logo_height">400dp</dimen>
+    <integer name="num_cols">1</integer>
+
+</resources>
