@@ -14,56 +14,116 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <RelativeLayout
+                android:id="@+id/pager_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/GenericProgressBackground">
                 <android.support.v4.view.ViewPager
                     android:id="@+id/pager"
                     android:layout_width="fill_parent"
-                    android:layout_height="400dp"
-                    android:layout_weight="1"
-                    />
+                    android:layout_height="@dimen/me_profil_picture_size"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
                 <ProgressBar
                     android:id="@+id/loading_circle"
                     style="@style/GenericProgressIndicator"/>
             </RelativeLayout>
-            <TextView
-                android:id="@+id/userName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:padding="10dp"
-                android:layout_gravity="center_horizontal"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/black"
-                android:text="Bogdan Tirca"/>
-            <Button
-                android:id="@+id/feedback"
-                android:background="@drawable/option_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="50dp"
-                android:paddingTop="6dp"
-                android:paddingBottom="6dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:text="feedback"
-                android:textAppearance="?android:attr/textAppearanceLarge"/>
-            <Button
-                android:id="@+id/log_out_button"
-                android:background="@drawable/option_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:paddingTop="6dp"
-                android:paddingBottom="6dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:text="log out"
-                android:textAppearance="?android:attr/textAppearanceLarge"/>
-            </LinearLayout>
-        </com.wabbit.libraries.ScrollViewPhoto>
-</RelativeLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#FF4FAEE0"
+                    android:text="Bogdan Tirca"
+                    android:textSize="30dp"
+                    android:typeface="normal" />
+
+                <Button
+                    android:id="@+id/Share"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:padding="5dp"
+                    android:text="Share"
+                    android:textSize="23dp"
+                    android:textColor="#000000"
+
+                    android:background="@drawable/option_button" />
+
+                <LinearLayout
+                    android:id="@+id/top_line"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_height="5dp"
+                    android:background="@drawable/line"/>
+
+                <Button
+                    android:id="@+id/log_out_button"
+                    android:background="@drawable/option_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:textSize="23dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Log out"
+                    android:textColor="#000000"
+
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:typeface="sans" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="5dp"
+                    android:background="@drawable/line"
+                    android:id="@+id/bottom_line"/>
+
+                <Button
+                    android:id="@+id/feedback"
+                    android:background="@drawable/option_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:textSize="23dp"
+
+                    android:layout_gravity="center_horizontal"
+                    android:text="Feedback"
+                    android:textColor="#000000"
+                    android:typeface="sans"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="5dp"
+                    android:background="@drawable/line"
+                    android:id="@+id/third_line"/>
+
+                <Button
+                    android:id="@+id/invite_friends"
+                    android:background="@drawable/option_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:textSize="23dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Invite friends"
+                    android:textColor="#000000"
+                    android:typeface="sans"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </com.wabbit.libraries.ScrollViewPhoto>
+</RelativeLayout>
